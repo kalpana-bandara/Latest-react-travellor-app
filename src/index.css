@@ -249,4 +249,7 @@ a {
   .hero-title {
     font-size: 7vw;
   }
+  .searchForm {
+    width: 100%;
+  }
 }

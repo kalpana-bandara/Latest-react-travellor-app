@@ -63,7 +63,7 @@ const Details = () => {
                     <p>{populationNumber ? populationNumber : "loading"}</p>
                     <p>{currencyName ? currencyName : "loading"}</p>
                     <p>{capitalName ? capitalName : "loading"}</p>
-                    <p>10 crimes</p>
+                    <p>Comming soon</p>
                   </div>
                 </div>
               </div>

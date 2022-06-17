@@ -9,8 +9,8 @@ const Hero = () => {
     <React.Fragment>
       <section className="hero-section">
         <picture>
-          <source media="(max-width:600px)" srcset="images/hero-small.jpg" />
-          <source media="(max-width:1200px)" srcset="images/hero-medium.jpg" />
+          <source media="(max-width:600px)" srcSet="images/hero-small.jpg" />
+          <source media="(max-width:1200px)" srcSet="images/hero-medium.jpg" />
           <img src="images/hero-full.jpg" alt="beautifull place with boats" />
         </picture>
         <div className="center">
