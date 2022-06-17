@@ -5,14 +5,14 @@ import CountryNameContext from "../CountryNameContext";
 const Hero = () => {
   const { countries } = useContext(CountryNameContext);
 
-  const heroSmall = "images/hero-small.jpg";
-  const heroMedium = "images/hero-medium.jpg";
-  const heroFull = "images/hero-Full.jpg";
-
   return (
     <React.Fragment>
       <section className="hero-section">
-        <img src={heroSmall} srcSet={`${heroSmall} 600w, ${heroMedium} 1400w, ${heroFull} 1920w`} alt="" />
+        <picture>
+          <source media="(max-width:600px)" srcset="images/hero-small.jpg" />
+          <source media="(max-width:1200px)" srcset="images/hero-medium.jpg" />
+          <img src="images/hero-full.jpg" alt="beautifull place with boats" />
+        </picture>
         <div className="center">
           <h1 className="hero-title">Travel.Anywhere</h1>
           <SearchForm countries={countries} />
