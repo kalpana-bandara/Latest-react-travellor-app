@@ -222,9 +222,23 @@ a {
   }
   .detail-box {
     flex-direction: column;
+    row-gap: 20px;
   }
   .image-one {
+    width: 100%;
+    height: 100%;
     position: static;
+  }
+  .image-one img {
+    width: 100%;
+  }
+  .image-two {
+    width: 100%;
+    height: 100%;
+    position: static;
+  }
+  .image-two img {
+    width: 100%;
   }
 }
 
