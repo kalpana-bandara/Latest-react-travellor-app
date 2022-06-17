@@ -246,4 +246,7 @@ a {
   ::placeholder {
     font-size: 12px;
   }
+  .hero-title {
+    font-size: 7vw;
+  }
 }
