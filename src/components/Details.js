@@ -66,13 +66,20 @@ const Details = () => {
             </div>
             <div className="right">
               <div className="image-one">
-                <img src={image.length > 0 ? image[0].urls.regular : null} alt="" />
+                <picture>
+                  <source media="(max-width:600px)" srcSet={image.length > 0 ? image[0].urls.small : null} />
+                  <img src={image.length > 0 ? image[0].urls.regular : null} alt="" />
+                </picture>
+
                 <p className="aboutImage">
                   Photo by <a href={`${image.length > 0 ? image[0].user.links.html : ""}?utm_source=travellerApp&utm_medium=referral`}>{image.length > 0 ? image[0].user.first_name : "Unknown"}</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
                 </p>
               </div>
               <div className="image-two">
-                <img src={image.length > 0 ? image[1].urls.regular : null} alt="" />
+                <picture>
+                  <source media="(max-width:600px)" srcSet={image.length > 0 ? image[1].urls.small : null} />
+                  <img src={image.length > 0 ? image[1].urls.regular : null} alt="" />
+                </picture>
                 <p className="aboutImage">
                   Photo by <a href={`${image.length > 0 ? image[1].user.links.html : ""}?utm_source=travellerApp&utm_medium=referral`}>{image.length > 0 ? image[1].user.first_name : "Unknown"}</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
                 </p>
