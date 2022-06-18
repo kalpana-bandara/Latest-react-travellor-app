@@ -206,6 +206,19 @@ a {
 .factsDetails p {
   margin-bottom: 10px;
 }
+.right a {
+  color: #0e0510;
+}
+
+.aboutImage {
+  position: absolute;
+  bottom: 0%;
+  padding: 5px 0;
+  text-align: center;
+  font-size: 14px;
+  width: 100%;
+  background-color: #f0f600;
+}
 
 @media only screen and (max-width: 1200px) {
   .wrapper {
@@ -227,7 +240,8 @@ a {
   .image-one {
     width: 100%;
     height: 100%;
-    position: static;
+    position: relative;
+    margin-bottom: 10px;
   }
   .image-one img {
     width: 100%;
@@ -235,7 +249,7 @@ a {
   .image-two {
     width: 100%;
     height: 100%;
-    position: static;
+    position: relative;
   }
   .image-two img {
     width: 100%;
