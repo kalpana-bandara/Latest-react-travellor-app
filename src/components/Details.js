@@ -10,22 +10,7 @@ const Details = () => {
     capital: [capitalName],
   } = useContext(CountryNameContext);
 
-  const images = [];
-  const authorsLinks = [];
   const [image, setImage] = useState([]);
-  const [author, setAuthor] = useState([]);
-
-  if (author.length > 0) {
-    console.log(author[0].user);
-  }
-
-  image.forEach((i) => {
-    images.push(i.urls.regular);
-  });
-
-  author.forEach((i) => {
-    authorsLinks.push(i.user.links.html);
-  });
 
   useEffect(() => {
     function getCountryImages() {
@@ -46,7 +31,6 @@ const Details = () => {
             // handle success here
             const photo = result.response;
             setImage(photo.results);
-            setAuthor(photo.results);
           }
         });
     }
@@ -82,15 +66,15 @@ const Details = () => {
             </div>
             <div className="right">
               <div className="image-one">
-                <img src={images[0]} alt="" />
+                <img src={image.length > 0 ? image[0].urls.regular : null} alt="" />
                 <p className="aboutImage">
-                  Photo by <a href={`${authorsLinks[0]}?utm_source=travellerApp&utm_medium=referral`}>{author.length > 0 ? author[0].user.first_name : "Unknown"}</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
+                  Photo by <a href={`${image.length > 0 ? image[0].user.links.html : ""}?utm_source=travellerApp&utm_medium=referral`}>{image.length > 0 ? image[0].user.first_name : "Unknown"}</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
                 </p>
               </div>
               <div className="image-two">
-                <img src={images[1]} alt="" />
+                <img src={image.length > 0 ? image[1].urls.regular : null} alt="" />
                 <p className="aboutImage">
-                  Photo by <a href={`${authorsLinks[1]}?utm_source=travellerApp&utm_medium=referral`}>{author.length > 0 ? author[1].user.first_name : "Unknown"}</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
+                  Photo by <a href={`${image.length > 0 ? image[1].user.links.html : ""}?utm_source=travellerApp&utm_medium=referral`}>{image.length > 0 ? image[1].user.first_name : "Unknown"}</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
                 </p>
               </div>
             </div>
