@@ -47,7 +47,7 @@ app.post("/violentrate", (req, res) => {
     for (i = 0; i <= violentCounts.length - 1; i++) {
       countries[i].violentCount = violentCounts[i];
     }
-    let matchingPair = countries.find((country) => country.country === `${req.body.country != "" ? req.body.country : "India"}`);
+    let matchingPair = countries.find((country) => country.country === `${req.body.country != "" ? req.body.country : ""}`);
     await browser.close();
     return matchingPair;
   }

@@ -49,7 +49,11 @@ const Details = () => {
       };
       axios(config)
         .then((res) => {
-          setViolentCount(res.data.data.violentCount);
+          if (Object.keys(res.data).length === 0) {
+            setViolentCount("loading");
+          } else {
+            setViolentCount(res.data.data.violentCount);
+          }
         })
         .catch((errors) => {
           console.log(errors);
