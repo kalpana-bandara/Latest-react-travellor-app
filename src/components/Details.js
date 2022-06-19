@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { createApi } from "unsplash-js";
 import CountryNameContext from "../CountryNameContext";
+import axios from "axios";
 
 const Details = () => {
   const {
@@ -11,6 +12,7 @@ const Details = () => {
   } = useContext(CountryNameContext);
 
   const [image, setImage] = useState([]);
+  const [violentCount, setViolentCount] = useState();
 
   useEffect(() => {
     function getCountryImages() {
@@ -34,6 +36,26 @@ const Details = () => {
           }
         });
     }
+    function getViolencedata() {
+      const config = {
+        method: "post",
+        url: "/violentrate",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        data: JSON.stringify({
+          country: `${countryName}`,
+        }),
+      };
+      axios(config)
+        .then((res) => {
+          setViolentCount(res.data.data.violentCount);
+        })
+        .catch((errors) => {
+          console.log(errors);
+        });
+    }
+    getViolencedata();
     getCountryImages();
   }, [countryName]);
 
@@ -53,13 +75,13 @@ const Details = () => {
                     <p>Popuation</p>
                     <p>Currency</p>
                     <p>Capital</p>
-                    <p>No. of crimes in last month</p>
+                    <p>Most reported no. of homicides in a year</p>
                   </div>
                   <div className="factsDetails">
                     <p>{populationNumber ? populationNumber : "loading"}</p>
                     <p>{currencyName ? currencyName : "loading"}</p>
                     <p>{capitalName ? capitalName : "loading"}</p>
-                    <p>Comming soon</p>
+                    <p>{violentCount ? violentCount : "loading"}</p>
                   </div>
                 </div>
               </div>
